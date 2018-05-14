@@ -2,6 +2,7 @@
 
 Make sure to fill up the twitter_credentials.py file with your API keys. 
 
+![alt text](https://developers.gigya.com/download/attachments/8570128/twitter_keys.jpg?version=1&modificationDate=1431476196000&api=v2)
 
 Make sure that you have all requirements installed (cf readme.pdf)
 
