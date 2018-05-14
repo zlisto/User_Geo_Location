@@ -4,15 +4,13 @@ from matplotlib import pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
+from math import log
+import time
 
 alambda = 0.98
 alpha=[log(5), 0.004, 0.0004] # Only matters if psi is fixed; otherwise alpha will be learned from data
 
 
-
-def X(profile):
-    return(features(profile,location_terms,wcs,languages,utc_offsets)[0])
-    
 
 ### Features function based on these lists
 ### This function returns variable types as well in order to create SQL tables.
@@ -187,3 +185,16 @@ def readCredentials(path):
         res[temp[0]] = temp[1:]
 
     return res;
+
+def getGeoCode(geocode_name):
+    while(True):
+        print('Querying geo location via GoogleMapPlotter, waiting for response')
+        print('\n')
+        try :
+            geo_location=gmplot.GoogleMapPlotter.from_geocode(geocode_name) ##it happens that this will return a list index out of range error. Retry this 2,3 times if necessary.
+        except: 
+            time.sleep(2)
+            continue;
+        if(geo_location != None):
+            break;
+    return geo_location
