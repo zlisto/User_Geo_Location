@@ -29,11 +29,6 @@ stop_collecting_time=datetime.now()+timedelta(0,total_collection_seconds)
 twitter = Twython(twitter_auth['consumer_key'],twitter_auth['consumer_secret'],twitter_auth['access_token'],twitter_auth['access_token_secret'])
 
 
-#####################################################################################
-##### large world cities
-wcs=['dubai', 'kabul', 'yerevan', 'luanda', 'cordoba', 'rosario', 'vienna', 'adelaide', 'brisbane', 'melbourne', 'perth', 'sydney', 'baku', 'dhaka', 'khulna', 'brussels', 'ouagadougou', 'sofia', 'belem', 'belo horizonte', 'brasilia', 'campinas', 'curitiba', 'fortaleza', 'goiania', 'guarulhos', 'manaus', 'nova iguacu', 'porto alegre', 'recife', 'rio de janeiro', 'salvador', 'sao paulo', 'minsk', 'montreal', 'toronto', 'vancouver', 'kinshasa', 'lubumbashi', 'brazzaville', 'abidjan', 'santiago', 'douala', 'yaounde', 'anshan', 'changchun', 'chengdu', 'chongqing', 'dalian', 'datong', 'fushun', 'fuzhou', 'guangzhou', 'guiyang', 'handan', 'hangzhou', 'harbin', 'hefei', 'huainan', 'jilin', 'jinan', 'kunming', 'lanzhou', 'luoyang', 'nanchang', 'nanjing', 'peking', 'qingdao', 'rongcheng', 'shanghai', 'shenyang', 'shenzhen', 'suzhou', 'taiyuan', 'tangshan', 'tianjin', 'urumqi', 'wuhan', 'wuxi', 'xian', 'xianyang', 'xinyang', 'xuzhou', 'barranquilla', 'bogota', 'cali', 'medellin', 'prague', 'berlin', 'hamburg', 'munich', 'copenhagen', 'santo domingo', 'algiers', 'guayaquil', 'quito', 'alexandria', 'cairo', 'gizeh', 'barcelona', 'madrid', 'addis abeba', 'paris', 'london', 'tbilisi', 'accra', 'kumasi', 'conakry', 'port-au-prince', 'budapest', 'bandung', 'bekasi', 'depok', 'jakarta', 'makasar', 'medan', 'palembang', 'semarang', 'surabaya', 'tangerang', 'dublin', 'agra', 'ahmadabad', 'allahabad', 'amritsar', 'aurangabad', 'bangalore', 'bhopal', 'bombay', 'calcutta', 'delhi', 'faridabad', 'ghaziabad', 'haora', 'hyderabad', 'indore', 'jabalpur', 'jaipur', 'kalyan', 'kanpur', 'lakhnau', 'ludhiana', 'madras', 'nagpur', 'new delhi', 'patna', 'pimpri', 'pune', 'rajkot', 'surat', 'thana', 'vadodara', 'varanasi', 'visakhapatnam', 'baghdad', 'esfahan', 'karaj', 'mashhad', 'qom', 'shiraz', 'tabriz', 'milan', 'rome', 'hiroshima', 'kawasaki', 'kobe', 'nagoya', 'saitama', 'tokyo', 'nairobi', 'phnum penh', 'seoul', 'almaty', 'bayrut', 'beirut', 'tripoli', 'casablanca', 'fez', 'rabat', 'antananarivo', 'bamako', 'mandalay', 'rangoon', 'ecatepec', 'guadalajara', 'juarez', 'leon', 'mexico', 'monterrey', 'nezahualcoyotl', 'puebla', 'tijuana', 'kuala lumpur', 'maputo', 'benin', 'ibadan', 'kaduna', 'kano', 'lagos', 'maiduguri', 'port harcourt', 'managua', 'lima', 'davao', 'manila', 'faisalabad', 'gujranwala', 'hyderabad', 'karachi', 'lahore', 'multan', 'peshawar', 'rawalpindi', 'warsaw', 'bucharest', 'belgrade', 'chelyabinsk', 'kazan', 'moscow', 'nizhniy novgorod', 'novosibirsk', 'omsk', 'rostov-na-donu', 'saint petersburg', 'samara', 'ufa', 'volgograd', 'yekaterinburg', 'jiddah', 'mecca', 'riyadh', 'khartoum', 'umm durman', 'stockholm', 'singapore', 'freetown', 'dakar', 'mogadishu', 'aleppo', 'damascus', 'bangkok', 'adana', 'ankara', 'bursa', 'gaziantep', 'istanbul', 'izmir', 'kaohsiung', 'kaohsiung', 'taichung', 'taipei', 'dar es salaam', 'kiev', 'odesa', 'kampala', 'phoenix', 'los angeles', 'san diego', 'chicago', 'new york', 'philadelphia', 'dallas', 'houston', 'san antonio', 'montevideo', 'tashkent', 'caracas', 'maracaibo', 'valencia', 'hanoi', 'ha noi', 'ho chi minh city', 'cape town', 'durban', 'johannesburg', 'pretoria', 'soweto', 'lusaka', 'harare']
-outside_location_terms=[i[1] for i in wcs if db_name.lower() not in i[1].lower()]
-
 
 #####################################################################################
 #####  location specific information
@@ -42,9 +37,7 @@ utc_offsets=[1*60*60]
 db_name='Lille'  #Use the city name
 geocode_name="Lille, France" ### To obtain location coordinates
 label_radius=10 #miles
-geo_location=gmplot.GoogleMapPlotter.from_geocode(geocode_name)
-
-
+geo_location = getGeoCode(geocode_name)
 #####################################################################################
 #####  Location terms likely to be found in profile description
 
@@ -64,6 +57,13 @@ location_terms=[
     'lille-Nord',
     'france'
 ]
+
+
+#####################################################################################
+##### large world cities
+wcs=['dubai', 'kabul', 'yerevan', 'luanda', 'cordoba', 'rosario', 'vienna', 'adelaide', 'brisbane', 'melbourne', 'perth', 'sydney', 'baku', 'dhaka', 'khulna', 'brussels', 'ouagadougou', 'sofia', 'belem', 'belo horizonte', 'brasilia', 'campinas', 'curitiba', 'fortaleza', 'goiania', 'guarulhos', 'manaus', 'nova iguacu', 'porto alegre', 'recife', 'rio de janeiro', 'salvador', 'sao paulo', 'minsk', 'montreal', 'toronto', 'vancouver', 'kinshasa', 'lubumbashi', 'brazzaville', 'abidjan', 'santiago', 'douala', 'yaounde', 'anshan', 'changchun', 'chengdu', 'chongqing', 'dalian', 'datong', 'fushun', 'fuzhou', 'guangzhou', 'guiyang', 'handan', 'hangzhou', 'harbin', 'hefei', 'huainan', 'jilin', 'jinan', 'kunming', 'lanzhou', 'luoyang', 'nanchang', 'nanjing', 'peking', 'qingdao', 'rongcheng', 'shanghai', 'shenyang', 'shenzhen', 'suzhou', 'taiyuan', 'tangshan', 'tianjin', 'urumqi', 'wuhan', 'wuxi', 'xian', 'xianyang', 'xinyang', 'xuzhou', 'barranquilla', 'bogota', 'cali', 'medellin', 'prague', 'berlin', 'hamburg', 'munich', 'copenhagen', 'santo domingo', 'algiers', 'guayaquil', 'quito', 'alexandria', 'cairo', 'gizeh', 'barcelona', 'madrid', 'addis abeba', 'paris', 'london', 'tbilisi', 'accra', 'kumasi', 'conakry', 'port-au-prince', 'budapest', 'bandung', 'bekasi', 'depok', 'jakarta', 'makasar', 'medan', 'palembang', 'semarang', 'surabaya', 'tangerang', 'dublin', 'agra', 'ahmadabad', 'allahabad', 'amritsar', 'aurangabad', 'bangalore', 'bhopal', 'bombay', 'calcutta', 'delhi', 'faridabad', 'ghaziabad', 'haora', 'hyderabad', 'indore', 'jabalpur', 'jaipur', 'kalyan', 'kanpur', 'lakhnau', 'ludhiana', 'madras', 'nagpur', 'new delhi', 'patna', 'pimpri', 'pune', 'rajkot', 'surat', 'thana', 'vadodara', 'varanasi', 'visakhapatnam', 'baghdad', 'esfahan', 'karaj', 'mashhad', 'qom', 'shiraz', 'tabriz', 'milan', 'rome', 'hiroshima', 'kawasaki', 'kobe', 'nagoya', 'saitama', 'tokyo', 'nairobi', 'phnum penh', 'seoul', 'almaty', 'bayrut', 'beirut', 'tripoli', 'casablanca', 'fez', 'rabat', 'antananarivo', 'bamako', 'mandalay', 'rangoon', 'ecatepec', 'guadalajara', 'juarez', 'leon', 'mexico', 'monterrey', 'nezahualcoyotl', 'puebla', 'tijuana', 'kuala lumpur', 'maputo', 'benin', 'ibadan', 'kaduna', 'kano', 'lagos', 'maiduguri', 'port harcourt', 'managua', 'lima', 'davao', 'manila', 'faisalabad', 'gujranwala', 'hyderabad', 'karachi', 'lahore', 'multan', 'peshawar', 'rawalpindi', 'warsaw', 'bucharest', 'belgrade', 'chelyabinsk', 'kazan', 'moscow', 'nizhniy novgorod', 'novosibirsk', 'omsk', 'rostov-na-donu', 'saint petersburg', 'samara', 'ufa', 'volgograd', 'yekaterinburg', 'jiddah', 'mecca', 'riyadh', 'khartoum', 'umm durman', 'stockholm', 'singapore', 'freetown', 'dakar', 'mogadishu', 'aleppo', 'damascus', 'bangkok', 'adana', 'ankara', 'bursa', 'gaziantep', 'istanbul', 'izmir', 'kaohsiung', 'kaohsiung', 'taichung', 'taipei', 'dar es salaam', 'kiev', 'odesa', 'kampala', 'phoenix', 'los angeles', 'san diego', 'chicago', 'new york', 'philadelphia', 'dallas', 'houston', 'san antonio', 'montevideo', 'tashkent', 'caracas', 'maracaibo', 'valencia', 'hanoi', 'ha noi', 'ho chi minh city', 'cape town', 'durban', 'johannesburg', 'pretoria', 'soweto', 'lusaka', 'harare']
+outside_location_terms=[i[1] for i in wcs if db_name.lower() not in i[1].lower()]
+
 
 
 
@@ -100,8 +100,9 @@ user_data_set=UserData(conn,geo_location,db_name)
 ### This will be a problem if you are attempting to use a new probability model on an existing database.
 def X(profile):
     return(features(profile,location_terms,wcs,languages,utc_offsets)[0])
+
 user_data_set.create_tables(test_x[1])
-user_data_set.add_users(seed_users,X,label=1)
+user_data_set.add_users(seed_users,X,label=1) ##if table already exists, this will return an error
 
 
 
