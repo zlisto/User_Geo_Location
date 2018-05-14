@@ -4,21 +4,20 @@ from random import shuffle
 from datetime import datetime
 import time
 import pymysql
+from  twitter_credentials import *
+from twython import Twython
 
 #############################################################################################
 ####################### INPUTS ##############################################################
 
-from twython import Twython
-db_name='barcelona.db'
+db_name='DB_NAME.db'
 max_queries_per_user=16
-# Test
-with open('twitter_credentials.py') as f:
-    lines = f.read().splitlines()
 
-twitter = Twython(*lines)
+twitter = Twython(twitter_auth['consumer_key'],twitter_auth['consumer_secret'],twitter_auth['access_token'],twitter_auth['access_token_secret'])
+
 
 # Working directory is where the sqlite database file is found!
-working_directory="/Users/nicolas/Documents/MIT/RA/Code"
+working_directory="./"
 
 
 #############################################################################################
@@ -720,8 +719,6 @@ conn=sqlite3.connect(db_name)
 tweet_data=TweetData(conn)
 
 tweet_data.create_tweet_tables()
-# tweet_data.update_links()
-
 
 location_users=tweet_data.get_location_userids()
 collected_users=tweet_data.get_collected_userids()
