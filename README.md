@@ -8,7 +8,15 @@ Make sure that you have all requirements installed (cf readme.pdf)
 
 You can run get_ULDS.py to insert a set of users in a database, and, once this is done, get_tweets.py to recover the timeline of the later set of users.
 
-To run get_ULDS.py, you must redefine the location_terms characteristic of the city or town you target, as well as the set of seed users you know for sure are in the location (screen names) from which the model will run the first iteration.
+To run get_ULDS.py, you must redefine the location_terms characteristic of the city or town you target.
+
+![alt text](https://github.com/MITSocialNetworksThinkTank/User_Geo_Location/blob/master/miscellaneous/city_name_variations.png)
+
 
 Similarly, language, UTC offset and geocode name ought to be tailored to your target location.
 
+![alt text](https://github.com/MITSocialNetworksThinkTank/User_Geo_Location/blob/master/miscellaneous/location_information.png)
+
+Finally, you'll need to manually search for a small sample of seed users you know are in the location for sure, and update the following:
+
+![alt text](https://github.com/MITSocialNetworksThinkTank/User_Geo_Location/blob/master/miscellaneous/seed_users.png)
