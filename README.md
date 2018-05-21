@@ -23,4 +23,4 @@ Finally, you'll need to manually search for a small sample of seed users you kno
 
 There exists various ways to get a user_id from a screen_name, one of which is going to https://tweeterid.com/:
 
-![alt text]()
+![alt text](https://github.com/MITSocialNetworksThinkTank/User_Geo_Location/blob/master/miscellaneous/tweeter_id_converter.png)
