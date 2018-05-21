@@ -20,3 +20,7 @@ Similarly, language, UTC offset and geocode name ought to be tailored to your ta
 Finally, you'll need to manually search for a small sample of seed users you know are in the location for sure, and update the following:
 
 ![alt text](https://github.com/MITSocialNetworksThinkTank/User_Geo_Location/blob/master/miscellaneous/seed_users.png)
+
+There exists various ways to get a user_id from a screen_name, one of which is going to https://tweeterid.com/:
+
+![alt text]()
