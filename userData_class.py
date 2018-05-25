@@ -24,6 +24,21 @@ from datetime import datetime,timedelta
 import time
 from random import sample,random
 
+_ClassifyLinkData = namedtuple("_ClassifyLinkData",
+                               ["left_user_id",
+                                "right_user_id",
+                                "left_follows_right",
+                                "right_follows_left"])
+
+_ClassifyPsiData = namedtuple("_ClassifyPsiData",
+                              ["p01",
+                               "p10",
+                               "p00"])
+
+_ClassifyEdgeData = namedtuple("_ClassifyEdgeData",
+                               ["left_user_id",
+                                "right_user_id",
+                                "psi"])
 
 ################################################################################
 ##################### USER LOCATION DATA CLASS##################################
