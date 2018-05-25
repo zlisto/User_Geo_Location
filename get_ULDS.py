@@ -7,8 +7,7 @@ from  twitter_credentials import *
 from userData_class import *
 from function_HELPER import *
 
-_SOURCE = 1
-_SINK = 0
+
 
 
 #####################################################################################
