@@ -191,7 +191,7 @@ def getGeoCode(geocode_name):
         print('Querying geo location via GoogleMapPlotter, waiting for response')
         print('\n')
         try :
-            geo_location=gmplot.GoogleMapPlotter.from_geocode(geocode_name) ##it happens that this will return a list index out of range error. Retry this 2,3 times if necessary.
+            geo_location=gmplot.GoogleMapPlotter.geocode(geocode_name) ##it happens that this will return a list index out of range error. Retry this 2,3 times if necessary.
         except: 
             time.sleep(2)
             continue;
