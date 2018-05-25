@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
-from math import log
+from math import log, exp
 import time
 
 alambda = 0.98
