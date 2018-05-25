@@ -40,6 +40,9 @@ _ClassifyEdgeData = namedtuple("_ClassifyEdgeData",
                                 "right_user_id",
                                 "psi"])
 
+_SOURCE = 1
+_SINK = 0
+
 ################################################################################
 ##################### USER LOCATION DATA CLASS##################################
 
